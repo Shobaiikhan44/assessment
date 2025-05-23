@@ -25,7 +25,7 @@ const Navbar = () => {
 
   return (
     <>
-      <AppBar position="static" sx={{background:'transparent' , marginTop: '7px'}} >
+      <AppBar position="static" sx={{background:'transparent' , marginTop: '7px' ,gap: '30px' , height: '50px'}} >
         <Toolbar sx={{ display: 'flex', justifyContent: 'space-between' }}>
           {/* Logo Section */}
           <Box sx={{ display: 'flex', alignItems: 'center' }}>

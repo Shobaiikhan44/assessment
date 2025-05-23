@@ -14,7 +14,8 @@ const TopHeader = () => {
     <Box
       sx={{
         backgroundColor: '#2d55a0',
-        height: 40,
+        height:'56px',
+        width: 'full', 
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'space-between', // space between left and right groups

@@ -1,6 +1,12 @@
-// components/TopNavTabs.jsx
 import React from 'react';
-import { AppBar, Toolbar, Tabs, Tab } from '@mui/material';
+import {
+  AppBar,
+  Toolbar,
+  Tabs,
+  Tab,
+  useMediaQuery,
+  useTheme,
+} from '@mui/material';
 import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
 
 const tabData = [
@@ -8,11 +14,13 @@ const tabData = [
   { orange: '11GS', blue: 'PROCURE' },
   { orange: '11GS', blue: 'SUPPLY' },
   { orange: '11GS', blue: 'FREIGHT' },
-  { orange: '11GS', blue: 'MANAGED SERVICES' }
+  { orange: '11GS', blue: 'MANAGED SERVICES' },
 ];
 
 const TopNavTabs = () => {
   const [value, setValue] = React.useState(0);
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
@@ -26,24 +34,36 @@ const TopNavTabs = () => {
         boxShadow: 'none',
         borderBottom: 1,
         borderColor: 'divider',
-        backgroundColor: 'transparent'
+        backgroundColor: 'transparent',
+        overflowX: 'auto',
       }}
     >
-      <Toolbar>
+      <Toolbar sx={{ px: { xs: 1, sm: 2 } }}>
         <Tabs
           value={value}
           onChange={handleChange}
           textColor="primary"
           indicatorColor="primary"
+          variant={isMobile ? 'scrollable' : 'standard'}
+          scrollButtons={isMobile ? 'auto' : false}
+          allowScrollButtonsMobile
         >
           {tabData.map((tab, index) => (
             <Tab
               key={index}
               label={
-                <span style={{ display: 'flex', alignItems: 'center', gap: '2px' }}>
-                  <span style={{ color: '#F15A29', fontWeight: 'bold' }}>{tab.orange} </span>
+                <span
+                  style={{
+                    display: 'flex',
+                    alignItems: 'center',
+                    gap: '4px',
+                    fontSize: isMobile ? '12px' : '14px',
+                    whiteSpace: 'nowrap',
+                  }}
+                >
+                  <span style={{ color: '#F15A29', fontWeight: 'bold' }}>{tab.orange}</span>
                   <span style={{ color: '#2B3E71', fontWeight: 'bold' }}>{tab.blue}</span>
-                  <ArrowDropDownIcon sx={{ color: '#2B3E71', fontSize: '20px' }} />
+                  <ArrowDropDownIcon sx={{ color: 'white', fontSize: '20px' }} />
                 </span>
               }
             />
