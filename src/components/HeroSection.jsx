@@ -23,9 +23,9 @@ function HeroSection() {
           position: 'absolute',
           top: { xs: 20, md: 50 },
           right: { xs: '-50px', md: 0 },
-          width: { xs: '350px', sm: '350px', md: '600px' },
+          width: { xs: '350px', sm: '350px', md: '700px' },
           height: 'auto',
-          zIndex: 1,
+          
           
         }}
       />
